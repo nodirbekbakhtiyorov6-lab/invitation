@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#12080c">
+  <title>Приглашение для Шахины ❤️</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Manrope:wght@400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #12080c;
+      font-family: 'Manrope', system-ui, sans-serif;
+      color: #f5e6e8;
+      position: relative;
+      padding: 24px 16px;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(180, 40, 70, 0.28) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 90%, rgba(120, 30, 60, 0.18) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hearts-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .floating-heart {
+      position: absolute;
+      bottom: -30px;
+      font-size: 16px;
+      opacity: 0;
+      animation: rise linear infinite;
+      filter: drop-shadow(0 0 5px rgba(255, 100, 130, 0.35));
+      will-change: transform, opacity;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) rotate(0deg) scale(0.6); opacity: 0; }
+      10% { opacity: 0.45; }
+      90% { opacity: 0.3; }
+      100% { transform: translateY(-110vh) rotate(20deg) scale(1); opacity: 0; }
+    }
+
+    .card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 380px;
+      background: rgba(26, 12, 18, 0.88);
+      border: 1px solid rgba(255, 140, 160, 0.16);
+      border-radius: 28px;
+      padding: 36px 24px 32px;
+      text-align: center;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 
+        0 0 0 1px rgba(255, 180, 190, 0.04),
+        0 24px 48px -16px rgba(0, 0, 0, 0.65);
+      animation: cardIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(36px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .big-heart {
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: 6px;
+      display: inline-block;
+      animation: pulse 1.8s ease-in-out infinite;
+      filter: drop-shadow(0 0 16px rgba(255, 80, 120, 0.5));
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.18); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.1); }
+      60% { transform: scale(1); }
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(1.7rem, 6.5vw, 2.05rem);
+      line-height: 1.2;
+      margin-bottom: 4px;
+      background: linear-gradient(105deg, #ff9aab 0%, #ffc2cc 50%, #ff8fa3 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.25rem, 5vw, 1.5rem);
+      color: #ffb3c1;
+      margin-bottom: 20px;
+      letter-spacing: 0.4px;
+      animation: fadeUp 0.8s 0.25s both;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, #ff8fa3, transparent);
+      margin: 0 auto 22px;
+      animation: fadeUp 0.8s 0.35s both;
+    }
+
+    .info-block {
+      background: rgba(255, 140, 160, 0.06);
+      border: 1px solid rgba(255, 140, 160, 0.12);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      text-align: left;
+      animation: fadeUp 0.8s both;
+    }
+
+    .info-block:nth-of-type(1) { animation-delay: 0.4s; }
+    .info-block:nth-of-type(2) { animation-delay: 0.5s; }
+    .info-block:nth-of-type(3) { animation-delay: 0.6s; }
+
+    .info-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #ff9aab;
+      margin-bottom: 4px;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .info-value {
+      font-size: 1.05rem;
+      color: #f8e0e4;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .info-value small {
+      display: block;
+      font-size: 0.85rem;
+      color: #d4a8b0;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .message {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: #f0d4d8;
+      margin: 22px 0 18px;
+      animation: fadeUp 0.8s 0.7s both;
+    }
+
+    .message p {
+      margin-bottom: 10px;
+    }
+
+    .message strong {
+      color: #ffc2cc;
+      font-weight: 600;
+    }
+
+    .signature {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem;
+      color: #ff9aab;
+      font-style: italic;
+      animation: fadeUp 0.8s 0.85s both;
+    }
+
+    .bottom-hearts {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      font-size: 18px;
+      opacity: 0.7;
+      animation: fadeUp 0.8s 0.95s both;
+    }
+
+    .bottom-hearts span {
+      display: inline-block;
+      animation: bounce 2.5s ease-in-out infinite;
+    }
+    .bottom-hearts span:nth-child(2) { animation-delay: 0.2s; }
+    .bottom-hearts span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 90, 130, 0.2) 0%, transparent 70%);
+      top: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: -1;
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.65; transform: translateX(-50%) scale(1); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1.12); }
+    }
+
+    @media (max-width: 360px) {
+      .card { padding: 28px 18px 26px; }
+      .big-heart { font-size: 42px; }
+      .info-value { font-size: 0.98rem; }
+    }
+
+    @media (max-height: 720px) {
+      body { padding: 16px 14px; }
+      .card { padding: 26px 20px 24px; }
+      .big-heart { font-size: 40px; margin-bottom: 2px; }
+      .name { margin-bottom: 14px; }
+      .divider { margin-bottom: 16px; }
+      .info-block { padding: 12px 14px; margin-bottom: 10px; }
+      .message { margin: 16px 0 14px; font-size: 0.94rem; }
+      .bottom-hearts { margin-top: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts-bg" id="hearts"></div>
+
+  <div class="card">
+    <div class="big-heart">❤️</div>
+    <h1>С Днём Рождения</h1>
+    <div class="name">Шахина</div>
+    <div class="divider"></div>
+
+    <div class="info-block">
+      <div class="info-label">Дата</div>
+      <div class="info-value">
+        6 ноября 2026
+        <small>пятница • вечер</small>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-label">Место</div>
+      <div class="info-value">
+        Ресторан «Сыроварня»
+        <small>Ташкент</small>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-label">Дресс-код</div>
+      <div class="info-value">
+        Любой, в котором тебе удобно
+        <small>просто будь собой</small>
+      </div>
+    </div>
+
+    <div class="message">
+      <p>Приглашаю тебя на наше свидание.</p>
+      <p>Хочу провести этот вечер только с тобой — без спешки, без лишнего, просто рядом.</p>
+    </div>
+
+    <div class="signature">С любовью ❤️</div>
+
+    <div class="bottom-hearts">
+      <span>✨</span>
+      <span>💖</span>
+      <span>✨</span>
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById('hearts');
+    const symbols = ['❤️', '💕', '💗', '💖', '🩷'];
+
+    function spawnHeart() {
+      const el = document.createElement('div');
+      el.className = 'floating-heart';
+      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.fontSize = (13 + Math.random() * 18) + 'px';
+      el.style.animationDuration = (11 + Math.random() * 8) + 's';
+      el.style.animationDelay = Math.random() * 1.5 + 's';
+      container.appendChild(el);
+      setTimeout(() => el.remove(), 20000);
+    }
+
+    for (let i = 0; i < 8; i++) setTimeout(spawnHeart, i * 400);
+    setInterval(spawnHeart, 1800);
+  </script>
+</body>
+</html>
